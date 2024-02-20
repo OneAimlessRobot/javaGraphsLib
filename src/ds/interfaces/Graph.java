@@ -12,10 +12,15 @@ public interface Graph<T> {
 
 	Graph<T> getGraphClone();
 
+	
 	int sumDegrees();
 
 	boolean hasCycles();
 
+	Iterator<T> getVexes();
+	
+	Iterator<GraphEdge<T>> getEdges();
+	
 	Iterator<Iterator<T>> getIslands();
 
 	Iterator<Iterator<T>> allPaths(T aNode, T bNode);

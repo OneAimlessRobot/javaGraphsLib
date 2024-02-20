@@ -82,6 +82,7 @@ public class ListOperations<T> implements Serializable {
 	 public static<T> int iteratorOfIteratorsMinSize(Iterator<Iterator<T>> it) {
 		int min=1000000000;
 		while(it.hasNext()) {
+			System.out.println("Iterei!!!!");
 			Iterator<T> it2= it.next();
 			min=Math.min(min, iteratorSize(it2));
 		}

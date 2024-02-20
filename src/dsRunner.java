@@ -52,7 +52,7 @@ public class dsRunner {
 			case "loadMap":
 
 				System.out.print("\033[H\033[2J");
-					graphmap=new MapExplorerClass(FilePaths.MAPFILE2.getValue(),FilePaths.EXPLOREDFILE.getValue());
+					graphmap=new MapExplorerClass(FilePaths.MAPFILE.getValue(),FilePaths.EXPLOREDFILE.getValue());
 
 					break;
 			case "showspaths":

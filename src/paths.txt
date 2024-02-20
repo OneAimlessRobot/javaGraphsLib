@@ -22,6 +22,7 @@
 ./ds/interfaces/DEQueue.java
 ./ds/interfaces/MySortedSet.java
 ./ds/interfaces/Iterator.java
+./ds/interfaces/GraphEdge.java
 ./ds/interfaces/TwoWayIterator.java
 ./ds/interfaces/Graph.java
 ./ds/interfaces/MySet.java
@@ -37,6 +38,7 @@
 ./ds/implem/StackInArray.java
 ./ds/implem/StackInLinkedList.java
 ./ds/implem/DoubleLinkedList.java
+./ds/implem/GraphEdgeClass.java
 ./ds/implem/GraphClass.java
 ./ds/implem/ObjectSaverLoader.java
 ./ds/implem/FilePaths.java

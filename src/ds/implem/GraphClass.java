@@ -6,16 +6,16 @@ import java.util.NoSuchElementException;
 import customClasses.implem.ListOperations;
 import ds.exceptions.QueueEmptyException;
 import ds.exceptions.StackEmptyException;
+import ds.interfaces.GraphEdge;
 import ds.interfaces.Graph;
 import ds.interfaces.Iterator;
 import ds.interfaces.List;
 import ds.interfaces.Queue;
 import ds.interfaces.Stack;
 
-
 public class GraphClass<T> implements Serializable, Graph<T> {
 
-private static class GraphCloner<T> implements Serializable {
+public class GraphCloner<T> implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -166,42 +166,7 @@ protected static class GraphIteratorDepth<T> implements Iterator<T>,Serializable
 
 	
 }
-private static class GraphEdge<T> implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	private List<T> info;
-	GraphEdge(T first,T second){
-		
-		info= new DoubleLinkedList<>();
-		info.add(first);
-		info.add(second);
-	}
 
-	T getFirst(){
-		
-		return info.get(0);
-	}
-	T getSecond(){
-		
-		return info.get(1);
-	}
-
-	public boolean equals(Object otherEdge) {
-		boolean result=false;
-		if(otherEdge instanceof GraphEdge) {
-			return ((GraphEdge<?>)otherEdge).getFirst().equals(this.getFirst())
-			&& ((GraphEdge<?>)otherEdge).getSecond().equals(this.getSecond());
-			
-		}
-		return result;
-		
-		
-	}
-	public String toString() {
-		
-		return "["+getFirst()+" "+getSecond()+"]";
-	}
-}
  private List<GraphEdge<T>> graphEdges;
  private List<T> graphNodes;
  private T start;
@@ -241,7 +206,7 @@ public void addEdge(T firstData,T secondData) {
 	 GraphEdge<T> edge=null;
 	 if(((index1=graphNodes.getIndex(first))>=0)&&((index2=graphNodes.getIndex(second))>=0)) {
 		 
-		 edge= new GraphEdge<>(graphNodes.get(index1),graphNodes.get(index2));
+		 edge= new GraphEdgeClass<>(graphNodes.get(index1),graphNodes.get(index2));
 
 	} 
 	if(!graphEdges.contains(edge)) {
@@ -364,6 +329,14 @@ public Graph<T> getGraphClone() {
 	 
 	 
  }
+@Override
+	public Iterator<T> getVexes() {
+		return graphNodes.iterator();
+	}
+@Override
+	public Iterator<GraphEdge<T>> getEdges() {
+		return graphEdges.iterator();
+	}
  @Override
 public int sumDegrees() {
 	 Iterator<T> it= graphNodes.iterator();
